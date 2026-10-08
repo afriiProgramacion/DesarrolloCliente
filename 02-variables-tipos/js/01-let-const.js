@@ -24,3 +24,11 @@ const precioConIva = 123
 
 // const 99dias = 1 no puede empezar por numero
 
+const porducto = "Monitor de 23 \""
+const producto2 = 'Monitor de 23"'
+
+const producto = 'Monitor'
+
+// console.log(´El producto es un ${(producto)}´) - INTERPOLACION
+console.log('El producto es un ${(producto)}')
+
