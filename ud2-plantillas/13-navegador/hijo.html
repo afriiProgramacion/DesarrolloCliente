@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Documento hijo</title>
+  <style>body { font-family: system-ui, sans-serif; color: #3A0E28; margin: .75rem; } b { color: #D6336C; }</style>
+</head>
+<body>
+  <p>Soy un <b>documento dentro de otro</b> (o una ventana abierta con <code>window.open</code>).</p>
+  <p id="recibido">Esperando mensajes…</p>
+  <script type="module">
+    // Escucho mensajes del documento padre (o de quien me abrió)
+    window.addEventListener('message', evento => {
+      // Seguridad: comprobar SIEMPRE de dónde viene el mensaje
+      if (evento.origin !== window.location.origin) return
+      document.querySelector('#recibido').textContent = `Recibido: ${evento.data}`
+      // Respondo a quien me escribió: evento.source es el window que envió el mensaje
+      // (el padre del iframe o la ventana que me abrió), así sirve para los dos casos
+      evento.source.postMessage(`El hijo ha recibido «${evento.data}»`, evento.origin)
+    })
+
+    // ¿Quién me ha abierto o en qué estoy metido?
+    if (window.opener) console.log('[hijo] Me abrió otra ventana:', window.opener.location.href)
+    if (window.parent !== window) console.log('[hijo] Estoy dentro de un iframe')
+  </script>
+</body>
+</html>

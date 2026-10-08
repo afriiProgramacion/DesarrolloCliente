@@ -1,0 +1,4 @@
+{
+  // ESLint: buscar eslint.config.js y node_modules en la subcarpeta eslint/
+  "eslint.workingDirectories": [{ "mode": "auto" }]
+}

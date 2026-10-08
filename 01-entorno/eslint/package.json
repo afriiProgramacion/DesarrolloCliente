@@ -1,0 +1,12 @@
+{
+  "name": "dwec-ud2-eslint",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "eslint con-errores.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0"
+  }
+}
