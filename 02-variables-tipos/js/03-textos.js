@@ -33,5 +33,14 @@ console.log('ja'.repeat(4));
 
 const frase = 'Agustín pasa de JavaScript'
 
+const palabras = frase.split(" ")
+const iniciales = palabras.map(p => p[0])
+
+console.log(palabras);
+console.log(iniciales);
+console.log(frase);
+
+
+
 // ['A', 'p', 'd', 'J']
 
