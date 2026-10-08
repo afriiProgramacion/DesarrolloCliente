@@ -12,7 +12,7 @@ console.log(modulo, horasModulo);
 const carrito = []
 carrito.push("Monitor")
 console.log(carrito);
-carrito = "hola"
+// carrito = "hola" no se puede hacer
 
 let dato = "veinte"
 console.log(typeof dato);
