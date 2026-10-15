@@ -18,7 +18,7 @@ console.log(producto);
 
 console.log(producto.name);
 console.log(producto.price);
-console.log(prodcuto["estado producto"]);
+console.log(producto["estado producto"]);
 console.log(producto["price"]);
 
 producto.color = "azul"
