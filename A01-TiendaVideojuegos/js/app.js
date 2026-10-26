@@ -82,3 +82,48 @@ const conIVA = juegos.map(juego => ({
 console.log(conIVA)
 console.log(juegos)  
 
+const fechaHoy = new Date();
+const fechaFormateada = fechaHoy.toLocaleDateString('es-ES');
+console.log(`GameZone · Informe del ${fechaFormateada}`);
+console.log(`Año: ${hoy.getFullYear()}`)
+
+function fabricante(plataforma) {
+    switch (plataforma) {
+        case 'Switch':
+            return 'Nintendo';
+        case 'PS5':
+            return 'Sony';
+        case 'PC':
+            return 'Varios';
+        default:
+            return 'Desconocido';
+    }
+}
+
+// Pruebas requeridas
+console.log(fabricante('PS5'));
+console.log(fabricante('Xbox')); 
+
+juegos.forEach(juego => {
+    const estado = juego.stock > 0 ? 'Disponible' : 'Agotado';
+    console.log(`${juego.titulo}: ${estado}`);
+});
+
+
+console.log(juegos[0].stock == '4');  // false
+console.log(juegos[0].stock === '4'); // false
+
+
+for (const juego of juegos) {
+    if (juego.stock === 0) {
+        break; 
+    }
+    console.log(`Título: ${juego.titulo}`);
+}
+
+console.log("--- Propiedades del primer juego ---");
+const primerJuego = juegos[0];
+for (const clave in primerJuego) {
+    console.log(`${clave}: ${primerJuego[clave]}`);
+}
+
