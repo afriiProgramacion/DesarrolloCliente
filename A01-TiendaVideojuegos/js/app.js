@@ -15,24 +15,15 @@ const juegos = [
 ];
 
 
-// Mostrar nombre de dos maneras
-
 console.log(tienda.nombre)
 console.log(tienda["nombre"])
 
-// Nombre y contacto en una sola linea:
 let {nombre, contacto: {email}} = tienda
 console.log(tienda)
 
-// Añadir abierta y congelarla
 tienda.abierta = true
 console.log(tienda)
 
-//Object.freeze(tienda)
-//tienda.nombre = "GAME"
-//Object.isFrozen(tienda)
-
-// Crear horario 
 
 const horario = {apertura: '10:00', cierre: '21:00'}
 
@@ -85,7 +76,7 @@ console.log(juegos)
 const fechaHoy = new Date();
 const fechaFormateada = fechaHoy.toLocaleDateString('es-ES');
 console.log(`GameZone · Informe del ${fechaFormateada}`);
-console.log(`Año: ${hoy.getFullYear()}`)
+console.log(`Año: ${fechaHoy.getFullYear()}`)
 
 function fabricante(plataforma) {
     switch (plataforma) {
@@ -126,4 +117,64 @@ const primerJuego = juegos[0];
 for (const clave in primerJuego) {
     console.log(`${clave}: ${primerJuego[clave]}`);
 }
+
+
+// ============================================
+// PARTE 2 · FUNCIONES Y ARRAY METHODS
+// ============================================
+
+// Hoisting de funciones: la llamada funciona aunque la declaración esté abajo
+console.log(precioFinal(60))
+console.log(precioFinal(60, '$'))
+
+function precioFinal(precio, moneda = '€') {
+    return `${precio} ${moneda}`
+}
+
+// aplicarDescuento
+const aplicarDescuento = (precio, porcentaje) => precio - precio * porcentaje / 100
+console.log(aplicarDescuento(60, 20))
+
+// map
+const plataformas = juegos.map(juego => juego.plataforma)
+console.log(plataformas)
+console.log(plataformas.includes('Xbox'))
+
+// some
+const hayPS5 = juegos.some(juego => juego.plataforma === 'PS5')
+console.log(hayPS5)
+
+// find
+const minecraft = juegos.find(juego => juego.titulo === 'Minecraft')
+console.log(minecraft)
+
+const tetris = juegos.find(juego => juego.titulo === 'Tetris')
+console.log(tetris === undefined)
+
+// findIndex
+const indiceFIFA = juegos.findIndex(juego => juego.titulo === 'FIFA')
+juegos[indiceFIFA].stock = 5
+console.log(juegos[indiceFIFA])
+
+// filter
+const deSwitch = juegos.filter(juego => juego.plataforma === 'Switch')
+console.log(deSwitch)
+
+const disponiblesBaratos = juegos.filter(juego => juego.stock > 0 && juego.precio < 60)
+console.log(disponiblesBaratos)
+
+// every
+console.log(juegos.every(juego => juego.precio < 100))
+console.log(juegos.every(juego => juego.stock > 0))
+
+// reduce
+const valorInventario = juegos.reduce((total, juego) => total + juego.precio * juego.stock, 0)
+console.log(valorInventario)
+
+// filter + map encadenados
+const disponiblesMayus = juegos
+    .filter(juego => juego.stock > 0)
+    .map(juego => juego.titulo.toUpperCase())
+
+console.log(disponiblesMayus)
 
