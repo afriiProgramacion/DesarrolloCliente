@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="cabecera">
+        <h1>GameZone</h1>
+        <p id="fecha" class="fecha">Cargando fecha...</p>
+    </header>
+
+    <nav class="filtros">
+        <a href="#" class="filtro activo">Todos</a>
+        <a href="#" class="filtro">Switch</a>
+        <a href="#" class="filtro">PS5</a>
+        <a href="#" class="filtro">PC</a>
+        <a href="#" class="filtro">Xbox</a>
+    </nav>
+
+    <main class="contenedor">
+
+        <section class="resumen">
+            <div class="dato">
+                <span class="etiqueta">Juegos</span>
+                <span class="valor" id="total-juegos">-</span>
+            </div>
+            <div class="dato">
+                <span class="etiqueta">Disponibles</span>
+                <span class="valor" id="total-disponibles">-</span>
+            </div>
+            <div class="dato">
+                <span class="etiqueta">Valor del inventario</span>
+                <span class="valor" id="valor-inventario">-</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Catálogo</h2>
+            <div id="catalogo" class="catalogo">
+                <!-- Tarjeta de EJEMPLO: así deben quedar las que generes con JS.
+                     Bórrala desde app.js (no a mano). -->
+                <article class="card ejemplo">
+                    <div class="portada switch">S</div>
+                    <div class="info">
+                        <p class="titulo">Juego de ejemplo</p>
+                        <p class="plataforma">Switch · Nintendo</p>
+                        <p class="precio">60 €</p>
+                        <p class="stock disponible">Disponible (4)</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="columnas">
+            <div>
+                <h2>Novedades</h2>
+                <ul id="novedades" class="novedades"></ul>
+            </div>
+            <div>
+                <h2>Por plataforma</h2>
+                <table id="tabla-plataformas" class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Plataforma</th>
+                            <th>Juegos</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <p>GameZone © <span id="anio">----</span> · IES Rafael Alberti</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
